@@ -1,67 +1,69 @@
-// Este es un archivo stub para codeUtils
-// Proporciona implementaciones simuladas de las funciones necesarias
+/**
+ * Utility functions for handling code snippets
+ */
 
-export const registerLanguages = () => {
-  // Implementación vacía
-  console.log("registerLanguages llamado (stub)");
+/**
+ * Formats code for display
+ * @param code The code to format
+ * @param language The programming language of the code
+ */
+export const formatCode = (code: string, language: string = 'javascript'): string => {
+  return code.trim();
 };
 
-export const getLanguageFromExtension = (extension: string): string => {
-  // Devuelve un idioma predeterminado para cualquier extensión
-  return "javascript";
+/**
+ * Highlights specific lines in code
+ * @param code The code to highlight
+ * @param lineNumbers Array of line numbers to highlight
+ */
+export const highlightLines = (code: string, lineNumbers: number[] = []): string => {
+  if (lineNumbers.length === 0) return code;
+  
+  const lines = code.split('\n');
+  const highlightedLines = lines.map((line, index) => {
+    if (lineNumbers.includes(index + 1)) {
+      return `<mark>${line}</mark>`;
+    }
+    return line;
+  });
+  
+  return highlightedLines.join('\n');
 };
 
-export const getSyntaxHighlighter = (language: string = "javascript") => {
-  // Devuelve un objeto simulado que representa un resaltador de sintaxis
-  return {
-    language,
-    code: "",
-    tokens: [],
-    getLineProps: () => ({}),
-    getTokenProps: () => ({}),
-  };
-};
-
-export const getLanguageName = (language: string): string => {
-  // Devuelve el nombre legible del idioma
-  const languageMap = {
-    javascript: "JavaScript",
-    typescript: "TypeScript",
-    html: "HTML",
-    css: "CSS",
+/**
+ * Gets the language from a file extension
+ * @param filename The filename with extension
+ */
+export const getLanguageFromFilename = (filename: string): string => {
+  const extension = filename.split('.').pop()?.toLowerCase() || '';
+  
+  const extensionMap: Record<string, string> = {
+    'js': 'javascript',
+    'ts': 'typescript',
+    'jsx': 'jsx',
+    'tsx': 'tsx',
+    'html': 'html',
+    'css': 'css',
+    'json': 'json',
+    'md': 'markdown',
+    'py': 'python',
+    'java': 'java',
+    'c': 'c',
+    'cpp': 'cpp',
+    'cs': 'csharp',
+    'go': 'go',
+    'rb': 'ruby',
+    'php': 'php',
   };
   
-  return languageMap[language] || "Código";
+  return extensionMap[extension] || 'plaintext';
 };
 
-export const getLanguageFromFilename = (filename: string): string => {
-  // Extrae la extensión y devuelve el idioma
-  const extension = filename.split(".").pop() || "";
-  return getLanguageFromExtension(extension);
-};
-
-// Funciones adicionales que podrían ser importadas
-export const detectLanguage = (code: string): string => {
-  return "javascript";
-};
-
-export const loadLanguage = async (language: string) => {
-  console.log(`loadLanguage llamado con: ${language} (stub)`);
-  return Promise.resolve();
-};
-
-export const preloadCommonLanguages = async () => {
-  console.log("preloadCommonLanguages llamado (stub)");
-  return Promise.resolve();
-};
-
-// Constantes
-export const MAX_CODE_LENGTH = 100000;
-export const MAX_COMMENT_LENGTH = 20000;
-export const MAX_POST_LENGTH = 50000;
+export const MAX_CODE_LENGTH = 10000;
+export const MAX_COMMENT_LENGTH = 2000;
+export const MAX_POST_LENGTH = 5000;
 export const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5MB
 
-// Funciones de validación
 export const validateCodeInput = (code: string) => {
   if (!code.trim()) {
     return 'يجب إدخال الكود';
@@ -87,10 +89,21 @@ export const validateImageFile = (file: File) => {
   if (!file) {
     return 'يجب اختيار صورة';
   }
+  
+  // التحقق من نوع الملف
+  const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+  if (!validTypes.includes(file.type)) {
+    return 'يجب أن تكون الصورة بتنسيق JPG أو PNG أو GIF';
+  }
+
+  // التحقق من حجم الملف
+  if (file.size > MAX_IMAGE_SIZE) {
+    return 'يجب أن لا يتجاوز حجم الصورة 5 ميجابايت';
+  }
+
   return null;
 };
 
-// Funciones de formato
 export const getCharacterCount = (text: string) => {
   return text.length;
 };
@@ -108,4 +121,14 @@ export const formatRemainingCharacters = (remaining: number) => {
     return `تجاوزت الحد الأقصى بـ ${Math.abs(remaining)} حرف`;
   }
   return `متبقي ${remaining} حرف`;
-}; 
+};
+
+export default {
+  formatCode,
+  highlightLines,
+  getLanguageFromFilename,
+  validateCodeInput,
+  validateCommentInput,
+  validatePostInput,
+  validateImageFile
+};
