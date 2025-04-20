@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "installCommand": "npm install --legacy-peer-deps --force",
   "buildCommand": "CI=false npm run build || exit 0",
   "framework": "nextjs",
@@ -18,26 +17,5 @@
   "routes": [
     { "src": "/(.*)", "dest": "/" }
   ],
-  "trailingSlash": false,
-  "overrides": {
-    "builds": [
-      {
-        "use": "@vercel/next",
-        "config": {
-          "skipBuildErrorForEmptyCatchAll": true,
-          "skipBuildErrorForMissingIncrementalStaticRegenerationData": true,
-          "unstable_transformErrorToResponse": true
-        }
-      }
-    ]
-  }
-} 
-=======
-  "buildCommand": "npm run build || exit 0",
-  "installCommand": "npm install --legacy-peer-deps",
-  "framework": "nextjs",
-  "github": {
-    "silent": true
-  }
+  "trailingSlash": false
 }
->>>>>>> 2c45ab072a25486727a1fa772af5c3a3c50f6cfd
