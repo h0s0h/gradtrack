@@ -7,15 +7,12 @@
     "silent": true,
     "autoJobCancelation": false
   },
-  "ignoreCommand": "exit 0",
   "functions": {
     "api/**/*": {
       "runtime": "nodejs18.x",
       "maxDuration": 60
     }
   },
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
-  ],
   "trailingSlash": false
+  // حُذف "routes"
 }
