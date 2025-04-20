@@ -8,7 +8,7 @@
     "autoAlias": true,
     "autoJobCancelation": false
   },
-  "ignoreCommand": "exit 0",
+
   "functions": {
     "api/*": {
       "memory": 1024
