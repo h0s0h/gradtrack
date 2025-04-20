@@ -108,6 +108,4 @@ export const formatRemainingCharacters = (remaining: number) => {
     return `تجاوزت الحد الأقصى بـ ${Math.abs(remaining)} حرف`;
   }
   return `متبقي ${remaining} حرف`;
-};
-
-// Agrega cualquier otra función que pueda ser importada de este módulo
+}; 
