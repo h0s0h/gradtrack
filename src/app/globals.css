@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --text-primary: #f3f4f6;
+    --text-secondary: #e5e7eb;
+    --text-muted: #9ca3af;
+  }
+}
+
+/* تحسين وضوح النصوص الرئيسية */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+}
+
+h1 { 
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+}
+
+h2 { 
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 1.25rem;
+  font-weight: 900;
+}
+
+h3 { 
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+h4 { 
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+h5, h6 { 
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* تحسين وضوح نص الفقرات */
+p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* تحسين وضوح نصوص حقول الإدخال */
+input, textarea, select {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* قاعدة خاصة لتحويل النصوص البيضاء فقط إلى سوداء */
+input[style*="color: white"], input[style*="color: #fff"], input[style*="color: #ffffff"],
+textarea[style*="color: white"], textarea[style*="color: #fff"], textarea[style*="color: #ffffff"],
+select[style*="color: white"], select[style*="color: #fff"], select[style*="color: #ffffff"],
+input.text-white, textarea.text-white, select.text-white {
+  color: #000000 !important;
+}
+
+/* قاعدة للتأكد من أن حقول الإدخال تستخدم اللون الأسود عند الكتابة فيها */
+input:not([class*="text-"]), 
+textarea:not([class*="text-"]), 
+select:not([class*="text-"]),
+input:not([style*="color:"]), 
+textarea:not([style*="color:"]), 
+select:not([style*="color:"]) {
+  color: #000000;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* تحسين وضوح نصوص الأزرار */
+button {
+  font-weight: 500;
+}
+
+/* تحسين وضوح نصوص العناوين في البطاقات */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* تحسين وضوح نصوص القوائم */
+.menu-item {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.menu-item:hover {
+  color: var(--text-primary);
+}
+
+/* تحسين وضوح نصوص التنبيهات */
+.alert-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* تحسين وضوح نصوص الجداول */
+table th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+}
+
+table td {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+}
+
+/* تحسين وضوح نصوص النماذج */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+/* تحسين وضوح نصوص الوصف */
+.text-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.625;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+}
+
+/* تخصيص شريط التمرير */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* تعديل شريط التمرير للمتصفحات التي تدعم Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* قاعدة للتأكد من أن العناوين لا تكون بيضاء أبدًا */
+h1.text-white, h2.text-white, h3.text-white, 
+h1[style*="color: white"], h2[style*="color: white"], h3[style*="color: white"],
+h1[style*="color: #fff"], h2[style*="color: #fff"], h3[style*="color: #fff"],
+h1[style*="color: #ffffff"], h2[style*="color: #ffffff"], h3[style*="color: #ffffff"] {
+  color: #000000 !important;
+}
+
+/* قاعدة للعناوين التي ليس لها لون محدد */
+h1:not([class*="text-"]):not([style*="color:"]),
+h2:not([class*="text-"]):not([style*="color:"]),
+h3:not([class*="text-"]):not([style*="color:"]) {
+  color: #000000;
+}
