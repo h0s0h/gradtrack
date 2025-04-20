@@ -1,0 +1,25 @@
+# Exclude build directories
+.next
+
+# Exclude test files
+*.test.js
+*.spec.js
+__tests__
+__mocks__
+
+# Exclude development configuration files
+.env.local
+.env.development
+
+# Exclude git related files
+.git
+.github
+.gitignore
+
+# Exclude package manager files
+node_modules
+npm-debug.log
+
+# Exclude editor directories
+.vscode
+.idea 

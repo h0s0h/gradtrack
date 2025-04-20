@@ -1,33 +1,35 @@
 {
   "version": 2,
-  "installCommand": "npm install --legacy-peer-deps --force",
   "buildCommand": "CI=false npm run build || exit 0",
+  "installCommand": "npm install --legacy-peer-deps --force",
   "framework": "nextjs",
   "github": {
     "silent": true,
-    "autoJobCancelation": false
+    "autoAlias": true
   },
   "ignoreCommand": "exit 0",
   "functions": {
-    "api/**/*": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 60
+    "api/*": {
+      "memory": 1024
     }
   },
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
-  ],
-  "trailingSlash": false,
-  "overrides": {
-    "builds": [
-      {
-        "use": "@vercel/next",
-        "config": {
-          "skipBuildErrorForEmptyCatchAll": true,
-          "skipBuildErrorForMissingIncrementalStaticRegenerationData": true,
-          "unstable_transformErrorToResponse": true
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
-      }
-    ]
-  }
-}
+      ]
+    }
+  ]
+} 
