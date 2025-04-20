@@ -3,6 +3,16 @@
  */
 
 /**
+ * Simple language detection function that always returns a default language
+ * @param code The code to detect language for (unused, kept for compatibility)
+ * @returns Always returns 'javascript' as the default language
+ */
+export const detectLanguage = (code: string): string => {
+  // Always return 'javascript' as a safe default
+  return 'javascript';
+};
+
+/**
  * Formats code for display
  * @param code The code to format
  * @param language The programming language of the code
