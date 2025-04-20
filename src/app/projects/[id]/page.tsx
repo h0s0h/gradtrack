@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase/client';
 import { Project, Post, Comment, User, ProjectMember } from '@/lib/supabase/schema';
 import { format } from 'date-fns';
 import { arSA } from 'date-fns/locale';
-import { detectLanguage } from '@/utils/codeUtils';
+import { detectLanguage } from '../../../utils/codeUtils
 // استيراد خدمة التنبيهات
 import { NotificationService } from '@/lib/notifications/notificationService';
 
