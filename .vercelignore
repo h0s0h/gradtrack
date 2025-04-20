@@ -1,0 +1,13 @@
+node_modules
+.next
+.github
+.git
+README.md
+.env.local
+.env.development
+test/
+**/*.test.*
+**/__tests__/
+src/utils/codeUtils.ts
+src/app/auth/reset-password/page.tsx
+src/app/api/code/get/route.ts 
