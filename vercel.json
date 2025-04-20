@@ -7,11 +7,5 @@
     "silent": true,
     "autoJobCancelation": false
   },
-  "functions": {
-    "api/**/*": {
-      "runtime": "@vercel/node@2.x",
-      "maxDuration": 60
-    }
-  },
   "trailingSlash": false
 } 
