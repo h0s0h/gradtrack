@@ -1,13 +1,34 @@
-node_modules
+# Exclude build directories
 .next
-.github
-.git
-README.md
-.env.local
-.env.development
+
+# Exclude test files
+*.test.js
+*.spec.js
 test/
 **/*.test.*
 **/__tests__/
+__tests__
+__mocks__
+
+# Exclude development configuration files
+.env.local
+.env.development
+
+# Exclude git related files
+.git
+.github
+.gitignore
+
+# Exclude package manager files
+node_modules
+npm-debug.log
+
+# Exclude editor directories
+.vscode
+.idea
+
+# Exclude specific files
+README.md
 src/utils/codeUtils.ts
 src/app/auth/reset-password/page.tsx
-src/app/api/code/get/route.ts 
+src/app/api/code/get/route.ts
